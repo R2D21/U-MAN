@@ -1,0 +1,128 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body
+{
+  font-family: Calibri, serif;
+  font-size: 1vw;
+  margin-top: 0px;
+  margin-left: 14vw;
+  width:70vw;
+  color:white;
+  background-color: red;
+  padding: 0px;
+}
+
+#container
+{
+  position: absolute;
+  background-color: green;
+  margin-top: 3vw;
+  width:70vw;
+  height: 100%;
+}
+
+.menu
+{
+  width: 200px;
+}
+
+nav a
+{
+  text-decoration:none;
+  display: inline-block;
+  color:white;
+}
+.nav-bar
+{
+  background-color: black;
+  // background-image: url("");
+  height: 3vw;
+  display: flex;
+}
+
+
+nav > ul > li > a {
+  padding: 15px 30px;
+  color: white;
+}
+
+nav
+{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+// On utilise '>' pour ne cibler que la liste ul qui est un enfant direct de nav
+
+nav > ul
+{
+  margin: 0px;
+  padding: 0px;
+}
+
+nav > ul > li
+{
+  float: left;
+  position: relative;
+}
+
+
+nav li
+{
+  list-style-type: none;
+}
+
+nav > ul::after
+{
+  content: "";
+  display: block;
+  clear:both;
+}
+
+.submenu
+{
+  display: none;
+}
+
+nav li:hover .submenu
+{
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  left: 0px;
+  padding: 0px;
+  z-index: 100000
+}
+
+.submenu li a {
+  padding: 10px 30px;
+  font-size: 1vw;
+  width: 15vw;
+}
+
+.submenu li {
+  border-bottom: 1px solid #CCC
+}
+
+.menu:hover
+{
+  border-top: 5px solid black;
+  // background-color: rgba(228, 77, 38, 0.15);
+}
+
+nav > ul > li:hover a {
+  padding: 10px 30px 20px 30px;
+}
+
+.h3_thematique
+{
+  display: flex;
+  align-items: center;
+  color:red;
+}
+
+.menu > .submenu
+{
+  background-color: black;
+}
