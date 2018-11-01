@@ -1,105 +1,39 @@
-<% if params[:id] != nil and @tab_association_plante[0] != nil
-  puts "===================================="
-  puts "OK"
-  puts "===================================="
-  @tab_association_plante.each do |association| %>
-  <div class="hero-wrap hero-wrap-2" style="background-image: url(<%= '/assets/' + @id_project_search.Img.downcase %>); background-attachment:fixed;">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-        <div class="col-md-8 ftco-animate text-center">
-          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Accueil</a></span> <span class="mr-2"><a href="blog.html">Projets</a></span> <span>Projet Détail</span></p>
-          <h1 class="mb-3 bread"><%= @id_project_search.Title%></h1>
-        </div>
+<% if params[:id] != nil %>
+<div class="hero-wrap hero-wrap-2" style="background-image: url(<%= '/assets/' + @id_project_search.Img.downcase %>); background-attachment:fixed;">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+      <div class="col-md-8 ftco-animate text-center">
+        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Accueil</a></span> <span class="mr-2"><a href="blog.html">Projets</a></span> <span>Projet Détail</span></p>
+        <h1 class="mb-3 bread"><%= @id_project_search["Title"]%></h1>
       </div>
     </div>
   </div>
+</div>
 
-  <section class="ftco-section ftco-degree-bg">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 ftco-animate" style="margin-left:-15vw;">
+<section class="ftco-section ftco-degree-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 ftco-animate" style="margin-left:-15vw;">
 
-        </div> <!-- .col-md-8 -->
-        <div class="col-md-4 sidebar ftco-animate">
-          <div class="sidebar-box" style="margin-top: -1.5vw;margin-left:12vw !important;">
-            <h2>Documentation</h2>
-            <ul><li><a href="http://www.reinventer.paris/data/sites_d1f10/fiche/59/rp2_souterrain-du-pont-neuf-1er_fiche-technique_deaf6.pdf">Fiche détaillé</a></li> </ul>
-            <h2 style="margin-top:5vw;">Concept</h2>
-            <p style="width:30vw;"><%= @id_project_search.Subject%>
-            </p>
-          </li>
-        </p>
-      </div>
+      </div> <!-- .col-md-8 -->
+      <div class="col-md-4 sidebar ftco-animate">
+        <div class="sidebar-box" style="margin-top: -1.5vw;margin-left:12vw !important;">
+          <h2>Documentation</h2>
+          <ul><li><a href="http://www.reinventer.paris/data/sites_d1f10/fiche/59/rp2_souterrain-du-pont-neuf-1er_fiche-technique_deaf6.pdf">Fiche détaillé</a></li> </ul>
+          <h2 style="margin-top:5vw;">Concept</h2>
+          <p style="width:30vw;"><%= @id_project_search.Subject%>
+          </p>
+        </li>
+      </p>
     </div>
   </div>
+</div>
 </section>
 <section>
   <div style="margin-top:-30vw;margin-left:5vw;margin-bottom:4vw;">
-    <%= image_tag('/assets/' + @id_project_search.Img.downcase) %>
-  </div>
-  <div class="row" style="background-color:#bda05d;margin-left:3vw;width:93.6vw;height:30vw;">
-    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-
-      <div class="media block-6 services p-3 py-4 d-block text-center">
-        <div class="media-body px-3">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.6377624426195!2d2.346029115875733!3d48.8651175081867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e19ca52c0dd%3A0xd8940401106569dc!2s1+Rue+Marie+Stuart%2C+75002+Paris!5e0!3m2!1sfr!2sfr!4v1540932014087"frameborder="0" style="border:0;width:45vw;height:30.1vw;margin-top:-1.3vw;margin-left:-2.5vw;" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-      <div class="media block-6 services p-3 py-4 d-block text-center">
-        <div style="margin-left:15vw;">
-          <h2 style="color:white;">Localisation</h2>
-          <p style="margin-left:-1.8vw;color:white;"><%= @id_project_search.Place%></p>
-          <h2 style="color:white;">Partenaire</h2>
-
-          <p style="margin-left:-4vw;color:white;"><%= association.partner.Name%></p>
-          <h2 style="margin-left:-1.5vw;color:white;">Typologie</h2>
-          <p style="margin-left:-4.6vw;color:white;">Souterrain</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> <!-- .section -->
-<%end
-else
-  if params[:id] != nil %>
-  <div class="hero-wrap hero-wrap-2" style="background-image: url(<%= '/assets/' + @id_project_search.Img.downcase %>); background-attachment:fixed;">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
-        <div class="col-md-8 ftco-animate text-center">
-          <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Accueil</a></span> <span class="mr-2"><a href="blog.html">Projets</a></span> <span>Projet Détail</span></p>
-          <h1 class="mb-3 bread"><%= @id_project_search["Title"]%></h1>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="ftco-section ftco-degree-bg">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 ftco-animate" style="margin-left:-15vw;">
-
-        </div> <!-- .col-md-8 -->
-        <div class="col-md-4 sidebar ftco-animate">
-          <div class="sidebar-box" style="margin-top: -1.5vw;margin-left:12vw !important;">
-            <h2>Documentation</h2>
-            <ul><li><a href="http://www.reinventer.paris/data/sites_d1f10/fiche/59/rp2_souterrain-du-pont-neuf-1er_fiche-technique_deaf6.pdf">Fiche détaillé</a></li> </ul>
-            <h2 style="margin-top:5vw;">Concept</h2>
-            <p style="width:30vw;"><%= @id_project_search.Subject%>
-            </p>
-          </li>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-<section>
-  <div style="margin-top:-30vw;margin-left:5vw;margin-bottom:4vw;">
-    <%= image_tag('/assets/' + @id_project_search.Img.downcase) %>
-  </div>
+  <%= image_tag('/assets/' + @id_project_search.Img.downcase) %>
+</div>
   <div class="row" style="background-color:#bda05d;margin-left:3vw;width:93.6vw;height:30vw;">
     <div class="col-md-4 d-flex align-self-stretch ftco-animate">
 
@@ -123,5 +57,4 @@ else
     </div>
   </div>
 </section> <!-- .section -->
-<%end%>
 <%end%>

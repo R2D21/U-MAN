@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_01_161905) do
+ActiveRecord::Schema.define(version: 2018_11_01_172321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,18 @@ ActiveRecord::Schema.define(version: 2018_11_01_161905) do
     t.bigint "event_id", null: false
     t.index ["event_id", "user_id"], name: "index_events_users_on_event_id_and_user_id"
     t.index ["user_id", "event_id"], name: "index_events_users_on_user_id_and_event_id"
+  end
+
+  create_table "msgs", force: :cascade do |t|
+    t.string "msgable_type"
+    t.bigint "msgable_id"
+    t.string "Title", default: "", null: false
+    t.string "Name", default: "", null: false
+    t.string "Email", default: "", null: false
+    t.string "Text", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["msgable_type", "msgable_id"], name: "index_msgs_on_msgable_type_and_msgable_id"
   end
 
   create_table "partners", force: :cascade do |t|
