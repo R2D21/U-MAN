@@ -12,6 +12,6 @@ i = 0
 projets = Project.import('app/assets/csv/project.csv')
 partenaires  = Partner.import('app/assets/csv/partners.csv')
 partenaires.each_with_index do |partner,index|
-    partner.projects.concat(projets[index])
+    ProjectPartner.create(project_id:projets[index].id, partner_id:partner.id)
     puts "associations n°#{index} have been created"
 end

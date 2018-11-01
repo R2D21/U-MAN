@@ -22,9 +22,7 @@ class HomeController < ApplicationController
     @project_search = params[:id]
     if @project_search != nil && Project.find_by(id: @project_search) != nil
       @id_project_search = Project.find_by(id: @project_search)
-      system("clear")
-      puts "======================================="
-      puts @id_project_search["Subject"]
+      @tab_association_plante = ProjectPartner.where(project_id: @id_project_search)
     else
       @redirect = true
       redirect_to root_path
