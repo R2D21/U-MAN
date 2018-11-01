@@ -9,7 +9,6 @@
                     </br></br><h3 class="heading">Notre projet</h3></br></br>
                 <div class="row">
                     <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-
                       <div class="media block-6 services p-3 py-4 d-block text-center">
                         <div class="icon d-flex justify-content-center align-items-center mb-3"><a href="/projet"><span class="flaticon-exam"></span></a></div>
                         <div class="media-body px-3">
@@ -32,11 +31,12 @@
                         <div class="icon d-flex justify-content-center align-items-center mb-3"><span class="flaticon-books"></span></div>
                         <div class="media-body px-3">
                           <p style="font-size:1.2vw;color:black;align-items:left !important;">
-                            Créer un écosystème favorisant l'émergence de startups hight-tech
+                            Créer un écosystème favorisant l'émergence de startups high-tech
                           </p>
                         </div>
                       </div>
                     </div>
+
                   </div>
               	</div>
               </section>
@@ -106,45 +106,41 @@
           %>
         	<div class="col-md-4 d-flex ftco-animate">
           	<div class="blog-entry align-self-stretch">
-              <% test = 'assets/' + event["Img"].to_s %>
+              <% test = 'assets/' + event["Img"].downcase.to_s %>
               <a href="blog-single.html" class="block-20" style="background-image: url(<%= test %>);">
               </a>
               <div class="text p-4 d-block">
               	<div class="meta mb-3">
-                  <div><a href="#"></a></div>
                   <div><a href="#">Admin</a></div>
-                  <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                 </div>
-                <%=
-                    if  event["Date"].mon == 1
-                      date = event["Date"].mday.to_s + ' ' +  'Janvier'+ ' ' + event["Date"].year.to_s
-                    elsif event["Date"].mon == 2
-                      date = event["Date"].mday.to_s + ' ' +  'Fevrier'+ ' ' + event["Date"].year.to_s
-                    elsif event["Date"].mon == 3
-                      date = event["Date"].mday.to_s + ' ' +  'Mars'+ ' ' + event["Date"].year.to_s
-                    elsif event["Date"].mon == 4
-                      date = event["Date"].mday.to_s + ' ' +  'Avril'+ ' ' + event["Date"].year.to_s
-                    elsif event["Date"].mon == 5
-                      date = event["Date"].mday.to_s + ' ' +  'Mai'+ ' ' + event["Date"].year.to_s
-                    elsif event["Date"].mon == 6
-                      date = event["Date"].mday.to_s + ' ' +  'Juin'+ ' ' + event["Date"].year.to_s
-                    elsif event["Date"].mon == 7
-                      date = event["Date"].mday.to_s + ' ' +  'Juillet'+ ' ' + event["Date"].year.to_s
-                    elsif event["Date"].mon == 8
-                      date = event["Date"].mday.to_s + ' ' +  'Aout'+ ' ' + event["Date"].year.to_s
-                    elsif event["Date"].mon == 9
-                      date = event["Date"].mday.to_s + ' ' +  'Septembre'+ ' ' + event["Date"].year.to_s
-                    elsif event["Date"].mon == 10
-                      date = event["Date"].mday.to_s + ' ' +  'Octobre'+ ' ' + event["Date"].year.to_s
-                    elsif event["Date"].mon == 11
-                      date = event["Date"].mday.to_s + ' ' +  'Novembre'+ ' ' + event["Date"].year.to_s
-                    elsif event["Date"].mon == 12
-                      date = event["Date"].mday.to_s + ' ' +  'Décembre' + ' ' + event["Date"].year.to_s
-                    end
+                <%
+                    if  event["Date"].strftime("%m").to_i == 1
+                      date = event["Date"].strftime("%d") + ' ' +  'Janvier'+ ' ' +  event["Date"].strftime("%Y")
+                    elsif event["Date"].strftime("%m").to_i == 2
+                      date = event["Date"].strftime("%d") + ' ' +  'Fevrier'+ ' ' +  event["Date"].strftime("%Y")
+                    elsif event["Date"].strftime("%m").to_i == 3
+                      date = event["Date"].strftime("%d") + ' ' +  'Mars'+ ' ' + event["Date"].strftime("%Y")
+                    elsif event["Date"].strftime("%m").to_i == 4
+                      date = event["Date"].strftime("%d") + ' ' +  'Avril'+ ' ' + event["Date"].strftime("%Y")
+                    elsif event["Date"].strftime("%m").to_i == 5
+                      date = event["Date"].strftime("%d") + ' ' +  'Mai'+ ' ' + event["Date"].strftime("%Y")
+                    elsif event["Date"].strftime("%m").to_i == 6
+                      date = event["Date"].strftime("%d") + ' ' +  'Juin'+ ' ' + event["Date"].strftime("%Y")
+                    elsif event["Date"].strftime("%m").to_i == 7
+                      date = event["Date"].strftime("%d") + ' ' +  'Juillet'+ ' ' + event["Date"].strftime("%Y")
+                    elsif event["Date"].strftime("%m").to_i == 8
+                      date = event["Date"].strftime("%d") + ' ' +  'Aout'+ ' ' + event["Date"].strftime("%Y")
+                    elsif event["Date"].strftime("%m").to_i == 9
+                      date = event["Date"].strftime("%d") + ' ' +  'Septembre'+ ' ' + event["Date"].strftime("%Y")
+                    elsif event["Date"].strftime("%m").to_i == 10
+                      date = event["Date"].strftime("%d") + ' ' +  'Octobre'+ ' ' + event["Date"].strftime("%Y")
+                  end
+                    hour = event["Date"].strftime("%I:%M")
                     %>
-                    <h3 class="heading mb-4"><a href="#"><%=  date %></h3>
+                          <h3 class="heading mb-4"><a href="#">Le <%=  date %> à <%= hour %></h3>
                   <h3 class="heading mb-4"><a href="#"></h3>
-                <p class="time-loc"><span class="mr-2"><i class="icon-clock-o"></i> 10:30AM-03:30PM</span> <span><i class="icon-map-o"></i> <%= event["Name"]%></span></p>
+                <p class="time-loc"></p>
+                <p><%= event["Name"]%></p>
                 <p><%= event["Subject"]%></p>
                 <p><a href="event.html">Join Event</a></p>
               </div>

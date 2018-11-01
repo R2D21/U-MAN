@@ -1,0 +1,54 @@
+<div class="hero-wrap hero-wrap-2" style="background-image: url('https://www.redsen-consulting.com/wp-content/uploads/2016/04/m%C3%A9thodologie-mareva-redsen-consulting.jpg'); background-attachment:fixed;">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
+      <div class="col-md-8 ftco-animate text-center">
+        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Accueil</a></span> <span>Projet</span></p>
+        <h1 class="mb-3 bread">Projet</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="ftco-section">
+  <div class="container">
+    <div class="row">
+      <% p = Project.all
+        p.each do |projet|
+        %>
+      <div class="col-md-4 d-flex ftco-animate">
+        <div class="blog-entry align-self-stretch">
+          <% test = '/assets/' + projet["Img"].downcase.to_s %>
+          <a href="blog-single.html" class="block-20" style="background-image: url(<%= test %>);">
+          </a>
+          <div class="text p-4 d-block">
+            <!-- <div class="meta mb-3">
+              <div><a href="#">Sep. 10, 2018</a></div>
+              <div><a href="#">Admin</a></div>
+              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+            </div> -->
+            <h3 class="heading mb-4"><a href="#"><%= projet["Title"] %></a></h3>
+            <p><%= projet["Description"] %></p>
+            <p><a href=<%= '/projet/' + projet.id.to_s %> >Voir le projet</a></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <!-- <div class="row mt-5">
+      <div class="col text-center">
+        <div class="block-27">
+          <ul>
+            <li><a href="#">&lt;</a></li>
+            <li class="active"><span>1</span></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">&gt;</a></li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+  </div>
+</section>
