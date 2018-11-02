@@ -1,13 +1,13 @@
 class HomeController < ApplicationController
-  def Index
 
+  skip_before_action :verify_authenticity_token
+  def Index
   end
 
   def about
   end
 
   def project
-
   end
 
   def project1
@@ -22,11 +22,18 @@ class HomeController < ApplicationController
     @project_search = params[:id]
     if @project_search != nil && Project.find_by(id: @project_search) != nil
       @id_project_search = Project.find_by(id: @project_search)
-      @tab_association_plante = ProjectPartner.where(project_id: @id_project_search)
+      system("clear")
+      puts "======================================="
+      puts @id_project_search["Subject"]
     else
       @redirect = true
       redirect_to root_path
     end
+  end
+
+  def comment
+    msg = Msg.create(Title:params['Title'],Name:params['Name'],Email:params['Email'],Text:params['Texte'], user_id: 1)
+    puts msg.Title
   end
 
 end

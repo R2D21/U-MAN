@@ -15,3 +15,5 @@ partenaires.each_with_index do |partner,index|
     ProjectPartner.create(project_id:projets[index].id, partner_id:partner.id)
     puts "associations n°#{index} have been created"
 end
+
+msgs   = Msg.import('app/assets/csv/msgs.csv')

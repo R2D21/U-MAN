@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(version: 2018_11_01_172321) do
   create_table "msgs", force: :cascade do |t|
     t.string "msgable_type"
     t.bigint "msgable_id"
-    t.string "Title", default: "", null: false
-    t.string "Name", default: "", null: false
-    t.string "Email", default: "", null: false
-    t.string "Text", default: "", null: false
+    t.string "Title"
+    t.string "Name"
+    t.string "Email"
+    t.string "Text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["msgable_type", "msgable_id"], name: "index_msgs_on_msgable_type_and_msgable_id"

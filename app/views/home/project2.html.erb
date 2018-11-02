@@ -10,7 +10,6 @@
     </div>
   </div>
 </div>
-
 <section class="ftco-section ftco-degree-bg">
   <div class="container">
     <div class="row">
@@ -32,8 +31,8 @@
 </section>
 <section>
   <div style="margin-top:-30vw;margin-left:5vw;margin-bottom:4vw;">
-  <%= image_tag('/assets/' + @id_project_search.Img.downcase) %>
-</div>
+    <%= image_tag('/assets/' + @id_project_search.Img.downcase) %>
+  </div>
   <div class="row" style="background-color:#bda05d;margin-left:3vw;width:93.6vw;height:30vw;">
     <div class="col-md-4 d-flex align-self-stretch ftco-animate">
 
@@ -54,6 +53,41 @@
           <p style="margin-left:-4.6vw;color:white;">Souterrain</p>
         </div>
       </div>
+    </div>
+  </div>
+</section> <!-- .section -->
+<section>
+  <div class="row" style="width:93.6vw;margin-top:5vw;justify-content:center;">
+    <div>
+      <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+        <div class="media block-6 services p-3 py-4 d-block text-center">
+          <% messages = Msg.where(msgable_id: nil) %>
+          <% messages.each do |message|%>
+              <%= message.Title %></br>
+              <%= message.Name %></br>
+              <%= message.Text %></br>
+              <% msgs = Msg.where(msgable_id: message.id) %></br>
+              <% msgs.each do |msg|%>
+                  <%= msg.Title %></br>
+                  <%= msg.Name %></br>
+                  <%= msg.Text %></br>
+                <% end %>
+            <% end %>
+        </div>
+      </div>
+      <h2>Commenter</h2>
+      <form action="/comment/" method="POST" style="width:20vw;">
+        Titre du post
+        <input type="text" name="Title"style="width:20vw;margin-top:1vw;"></input>
+        Votre nom
+        <input type="text" name="Name"style="width:20vw;margin-top:1vw;"></input>
+        Votre email
+        <input type="email" name="Email"style="width:20vw;margin-top:1vw;"></input>
+        Le message
+        <textarea rows="4" cols="50" name="Texte" style="width:20vw;margin-top:1vw;"></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+
     </div>
   </div>
 </section> <!-- .section -->

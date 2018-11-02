@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'contact/', to: 'home#Index'
   #get 'projet/robotique', to: 'home#robotics'
   get '/projet/:id', to: 'home#project2'
+  post '/comment/', to: 'home#comment'
 end
