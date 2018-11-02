@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   #get 'projet/robotique', to: 'home#robotics'
   get '/projet/:id', to: 'home#project2'
   post '/comment/', to: 'home#comment'
+  post '/reply/', to: 'home#reply'
 end
