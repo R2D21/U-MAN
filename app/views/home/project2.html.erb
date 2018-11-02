@@ -57,38 +57,39 @@
   </div>
 </section> <!-- .section -->
 <section>
-  <div class="row" style="width:93.6vw;margin-top:5vw;justify-content:center;">
+  <div class="row" id="msgs">
     <div>
       <div class="col-md-4 d-flex align-self-stretch ftco-animate">
         <div class="media block-6 services p-3 py-4 d-block text-center">
-          <% messages = Msg.where(msgable_id: nil, project_id: params[:id]) %>
-          <% messages.each do |message|%>
-              <%= message.Title %></br>
-              <%= message.Name %></br>
-              <%= message.Text %></br>
-              <% msgs = Msg.where(msgable_id: message.id, project_id: params[:id]) %></br>
-              <% msgs.each do |msg|%>
-                  <%= msg.Title %></br>
-                  <%= msg.Name %></br>
-                  <%= msg.Text %></br>
+          <div class="msgs"><% messages = Msg.where(msgable_id: nil,project_id: params[:id]) %>
+            <% messages.each do |message| %>
+            <p class="msg">
+              <b class ="name"> <%= message.Name %></b>
+              <%= message.Text %></p>
+              <a href="#" class="reply" role="button">Répondre</a>
+              <% msgs = Msg.where(msgable_id: message.id, project_id: params[:id]) %>
+              <p class="answer">
+                <% msgs.each do |msg|%>
+                <b class="name"><%= msg.Name %></b>
+                <%= msg.Text %></br></p>
+                <a href="#" class="answer_reply" role="button">Répondre</a>
                 <% end %>
-            <% end %>
+                <% end %>
+              </div>
+            </div>
+            <!-- <h2>Commenter</h2>
+            <form action="/comment/" method="POST" style="width:20vw;">
+            Titre du post
+            <input type="text" name="Title"style="width:20vw;margin-top:1vw;"></input>
+            Votre nom
+            <input type="text" name="Name"style="width:20vw;margin-top:1vw;"></input>
+            Votre email
+            <input type="email" name="Email"style="width:20vw;margin-top:1vw;"></input>
+            Le message
+            <textarea rows="4" cols="50" name="Texte" style="width:20vw;margin-top:1vw;"></textarea>
+            <button type="submit">Envoyer</button>
+          </form> -->
         </div>
       </div>
-      <h2>Commenter</h2>
-      <form action="/comment/" method="POST" style="width:20vw;">
-        Titre du post
-        <input type="text" name="Title"style="width:20vw;margin-top:1vw;"></input>
-        Votre nom
-        <input type="text" name="Name"style="width:20vw;margin-top:1vw;"></input>
-        Votre email
-        <input type="email" name="Email"style="width:20vw;margin-top:1vw;"></input>
-        Le message
-        <textarea rows="4" cols="50" name="Texte" style="width:20vw;margin-top:1vw;"></textarea>
-        <button type="submit">Envoyer</button>
-      </form>
-
-    </div>
-  </div>
-</section> <!-- .section -->
-<%end%>
+    </section> <!-- .section -->
+    <%end%>

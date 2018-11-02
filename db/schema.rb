@@ -41,7 +41,11 @@ ActiveRecord::Schema.define(version: 2018_11_01_172321) do
   create_table "msgs", force: :cascade do |t|
     t.string "msgable_type"
     t.bigint "msgable_id"
+<<<<<<< HEAD
     t.bigint "project_id"
+=======
+    t.bigint "project_id", null: false
+>>>>>>> add_front_from_participate
     t.string "Title"
     t.string "Name"
     t.string "Email"
