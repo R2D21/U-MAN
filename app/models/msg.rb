@@ -1,4 +1,5 @@
 class Msg < ApplicationRecord
+  belongs_to :project
   has_many :msgs, as: :msgable
   def self.import(file)
     i = 0
